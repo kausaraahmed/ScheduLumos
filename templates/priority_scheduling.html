@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priority Scheduling Algorithm</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='other_style.css') }}">
+</head>
+
+<body>
+
+    <h1>Priority Scheduling Algorithm</h1>
+
+    <div class="input-container">
+        <label for="arrival-time">Arrival Time:</label>
+        <input type="text" id="arrival-time" name="arrival-time" placeholder="Enter arrival time">
+        <label for="burst-time">Burst Time:&nbsp;</label>
+        <input type="text" id="burst-time" name="burst-time" placeholder="Enter burst time">
+        <label for="priority">Priority:&nbsp;</label>
+        <input type="text" id="priority" name="priority" placeholder="Enter priorities">
+    </div>
+
+    <button id="run-algo">Run Algorithm</button>
+
+    <div id="result-container" style="position: relative">
+        <a id="download-link" href="#" style="display: none; position: absolute; top: 10px; right: 10px;">
+            <img src="{{ url_for('static', filename='file.png') }}" alt="Download Result"
+                style="width: 30px; height: 30px; cursor: pointer;">
+        </a>
+        <div id="result"></div>
+    </div>
+
+    <br>
+
+    <a href="{{ url_for('index') }}" class="back_to_main"><button>Main Menu</button></a>
+
+
+    <script>
+        document.getElementById('run-algo').addEventListener('click', function () {
+            const arrivalTimes = document.getElementById('arrival-time').value;
+            const burstTimes = document.getElementById('burst-time').value;
+            const priority = document.getElementById('priority').value;
+
+            fetch('/priority-scheduling', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `arrival-time=${encodeURIComponent(arrivalTimes)}&burst-time=${encodeURIComponent(burstTimes)}&priority=${encodeURIComponent(priority)}`
+            })
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('result').innerHTML = `<pre>${data}</pre>`;
+                    const downloadLink = document.getElementById('download-link');
+                    const blob = new Blob([data], { type: 'text/plain' });
+                    const url = URL.createObjectURL(blob);
+                    downloadLink.href = url;
+                    downloadLink.download = 'priority_scheduling_result.txt';
+                    downloadLink.style.display = 'flex';
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+    <footer>&copy; KAUS4R</footer>
+</body>
+
+</html>

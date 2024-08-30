@@ -1,0 +1,59 @@
+body {
+    background-image: url("bg.jpg");
+    background-size: cover;
+    width: 80%;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+}
+
+h1 {
+    font-size: 4.5vw;
+    margin-top: 5%;
+    font-weight: bold;
+    color: #101010;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 6%;
+    margin: auto;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.75% 2%;
+    margin: 6% 6% auto;
+    background: #141619;
+    color: whitesmoke;
+    text-decoration: none;
+    font-size: 1.8vw;
+    font-family: 'Ubuntu', sans-serif;
+    border: 3px solid transparent;
+    border-radius: 15px 50px;
+    width: 12vw;
+    height: 12vh;
+    transition: all 0.4s ease-in-out;
+}
+
+.button:hover {
+    border-color: #ED7847;
+    background-color: #141619f5;
+    border-width: 3px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+    text-align: center;
+    padding: 10px;
+    margin: 0 auto;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 14px;
+}
