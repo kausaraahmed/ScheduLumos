@@ -47,9 +47,22 @@ class FCFS():
         avg_tat = total_tat / n
         
         result += f"\nAverage Waiting Time: {avg_wt:.2f}\n"
-        result += f"Average Turnaround Time: {avg_tat:.2f}"
+        result += f"Average Turnaround Time: {avg_tat:.2f}\n"
+        
+        result += '\n' + self.draw_gantt_chart(processes)
         
         return result
+    
+    def draw_gantt_chart(self, exe_order):
+        gantt_chart = '|'
+        for _ in exe_order:
+            gantt_chart += "  P" + str(_+1) +"  |"
+
+        top = '_' * len(gantt_chart)
+        bottom = '‾' * len(gantt_chart)
+        gantt_chart = 'Gantt Chart:\n' + top + '\n' + gantt_chart + '\n' + bottom
+
+        return gantt_chart
         
     def main(self):
         n = int(input("Enter the number of processes: "))
