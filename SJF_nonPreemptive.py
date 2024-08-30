@@ -53,24 +53,21 @@ class SJF_nonPreemtive:
         result += f"\nAverage Waiting Time: {total_wt / n:.2f}\n"
         result += f"Average Turnaround Time: {total_tat / n:.2f}\n"
         
+        result += '\n' + self.draw_gantt_chart(execution_order)
         
         return result  # Return the result string
 
     def draw_gantt_chart(self, exe_order):
         gantt_chart = '|'
-        
         for _ in exe_order:
             gantt_chart += "  P" + str(_+1) +"  |"
-        
-        # print("\nGantt Chart:")
-        for _ in gantt_chart:
-            print('_', end="")
-        print()
-        
-        print(gantt_chart)
-        
-        for _ in gantt_chart:
-            print('‾', end="")
+
+        top = '_' * len(gantt_chart)
+        bottom = '‾' * len(gantt_chart)
+        gantt_chart = 'Gantt Chart:\n' + top + '\n' + gantt_chart + '\n' + bottom
+
+        return gantt_chart
+
 
     def main(self):
         n = int(input("Enter the number of processes: "))
