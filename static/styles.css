@@ -56,4 +56,22 @@ footer {
     margin: 0 auto;
     font-family: 'Ubuntu', sans-serif;
     font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.socio-link {
+    margin: 0 5px;
+    right: 0;
+    bottom: 3px;
+    transition: all 0.1s ease-in-out;
+}
+
+.socio-link a {
+    margin-left: 5px;
+}
+
+.socio-link:hover {
+    scale: 1.1;
 }

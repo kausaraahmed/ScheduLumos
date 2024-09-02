@@ -60,7 +60,6 @@ h1 {
 input[type="text"] {
     width: 80%;
     padding: 10px;
-    /* margin: 40px 0; */
     border: 2px solid #141619;
     border-radius: 5px;
     background-color: transparent;
@@ -117,5 +116,23 @@ footer {
     padding: 10px;
     margin: 0 auto;
     font-family: 'Ubuntu', sans-serif;
-    font-size: 12px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.socio-link {
+    margin: 0 5px;
+    right: 0;
+    bottom: 3px;
+    transition: all 0.1s ease-in-out;
+}
+
+.socio-link a {
+    margin-left: 5px;
+}
+
+.socio-link:hover {
+    scale: 1.1;
 }

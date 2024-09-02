@@ -57,7 +57,14 @@
 
     <a href="{{ url_for('index') }}" class="back_to_main"><button>Main Menu</button></a>
 
-    <footer>&copy; KAUS4R</footer>
+    <footer>
+        &copy; KAUS4R&nbsp; &nbsp;| &nbsp;
+        <a href="https://github.com/kausaraahmed/ScheduLumos" class="socio-link" target="_blank">
+            <img src="{{ url_for('static', filename='github.png')}} " width="17px"></a>
+        &nbsp;
+        <a href="https://www.linkedin.com/in/kausaraahmed/" class="socio-link" target="_blank">
+            <img src="{{ url_for('static', filename='linkedin.png')}} " width="17px"></a>
+    </footer>
 
 </body>
 
