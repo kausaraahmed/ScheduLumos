@@ -3,15 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='fav.png' ) }}">
     <title>ScheduLumos</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='fav.png' ) }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css' ) }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap">
 </head>
 
 <body>
     <h1>ScheduLumos</h1>
+
     <div class="button-container">
         <a href="{{ url_for('fcfs') }}" class="button">FCFS</a>
         <a href="{{ url_for('sjf_non_preemptive') }}" class="button">SJF Non-Preemptive</a>
@@ -19,6 +20,7 @@
         <a href="{{ url_for('priority_scheduling') }}" class="button">Priority Scheduling</a>
         <a href="{{ url_for('round_robin') }}" class="button">Round Robin</a>
     </div>
+
     <footer>&copy; KAUS4R</footer>
 </body>
 

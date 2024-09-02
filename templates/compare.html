@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compare Algorithms</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='compare_style.css') }}">
+    <script src="{{ url_for('static', filename='compare.js') }}"></script>
 </head>
 
 
@@ -52,44 +53,6 @@
     </div>
 
     <a href="{{ url_for('index') }}" class="back_to_main"><button>Main Menu</button></a>
-    <script>
-        // Event listener for running other algorithms
-        function runAlgorithm(algorithm) {
-            const timeQuantam = document.getElementById('time-quantam').value;
-            const priority = document.getElementById('priority').value;
-
-            fetch(`/compare`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: `algo=${algorithm}&tQ=${timeQuantam}&priority=${priority}`
-            })
-                .then(response => response.text())
-                .then(data => {
-                    const [tat, wt] = extractor(data);
-
-                    if (tat && wt) {
-                        document.getElementById(`${algorithm}-tat`).innerText = 'Avg. TAT time: ' + tat + 's';
-                        document.getElementById(`${algorithm}-wt`).innerText = 'Avg. Wt time: ' + wt + 's';
-                    } else {
-                        document.getElementById(`${algorithm}-tat`).innerText = 'Errorqq';
-                        document.getElementById(`${algorithm}-wt`).innerText = 'Errordf';
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-        }
-
-        function extractor(text) {
-            const waitingTimeMatch = text.match(/Average Waiting Time: (\d+\.\d+)/);
-            const turnaroundTimeMatch = text.match(/Average Turnaround Time: (\d+\.\d+)/);
-
-            const wt = waitingTimeMatch ? waitingTimeMatch[1] : null;
-            const tat = turnaroundTimeMatch ? turnaroundTimeMatch[1] : null;
-            return [tat, wt]
-        }
-
-    </script>
 
     <footer>&copy; KAUS4R</footer>
 

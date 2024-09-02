@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
+    <title>Priority Scheduling Algorithm</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap">
-    <title>Priority Scheduling Algorithm</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='other_style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='algorithm_page_style.css') }}">
 </head>
 
 <body>
@@ -38,56 +38,8 @@
 
     <a href="{{ url_for('index') }}" class="back_to_main"><button>Main Menu</button></a>
 
+    <script src="{{ url_for('static', filename='priority_schedule.js') }}"></script>
 
-    <script>
-        document.getElementById('run-algo').addEventListener('click', function () {
-            const arrivalTimes = document.getElementById('arrival-time').value;
-            const burstTimes = document.getElementById('burst-time').value;
-            const priority = document.getElementById('priority').value;
-
-            fetch('/priority-scheduling', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: `arrival-time=${encodeURIComponent(arrivalTimes)}&burst-time=${encodeURIComponent(burstTimes)}&priority=${encodeURIComponent(priority)}`
-            })
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('result').innerHTML = `<pre>${data}</pre>`;
-                    const downloadLink = document.getElementById('download-link');
-                    const blob = new Blob([data], { type: 'text/plain' });
-                    const url = URL.createObjectURL(blob);
-                    downloadLink.href = url;
-                    downloadLink.download = 'priority_scheduling_result.txt';
-                    downloadLink.style.display = 'flex';
-                    send_compare.style.display = 'flex';
-                })
-                .catch(error => console.error('Error:', error));
-        });
-        document.getElementById('send_compare').addEventListener('click', function () {
-            const arrivalTimes = document.getElementById('arrival-time').value;
-            const burstTimes = document.getElementById('burst-time').value;
-            const priority = document.getElementById('priority').value;
-
-            fetch('/compare', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: `arrival-time=${encodeURIComponent(arrivalTimes)}&burst-time=${encodeURIComponent(burstTimes)}&priority=${encodeURIComponent(priority)}`
-            })
-                .then(response => {
-                    if (response.ok) {
-                        window.location.href = "/compare";
-                    } else {
-                        console.error("Failed to send data to compare page.");
-                    }
-                }).catch(error => console.error('Error:', error));
-        });
-
-
-    </script>
     <footer>&copy; KAUS4R</footer>
 </body>
 
