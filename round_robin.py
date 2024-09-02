@@ -13,6 +13,7 @@ class Round_Robin():
         current_time = 0
         completed = 0
         marked = [False] * n
+        execution_order = []
 
         while completed != n:
             for i in range(n):
@@ -25,6 +26,8 @@ class Round_Robin():
                 continue
 
             idx = queue.pop(0)
+            execution_order.append(idx)
+
             if remaining_burst_time[idx] > time_quantum:
                 remaining_burst_time[idx] -= time_quantum
                 current_time += time_quantum
@@ -49,10 +52,30 @@ class Round_Robin():
             result += f"{i + 1}\t\t{arrival_time[i]}\t\t{burst_time[i]}\t\t{waiting_time[i]}\t\t{turnaround_time[i]}\n"
         
         result += f"\nAverage Waiting Time: {avg_waiting_time:.2f}\n"
-        result += f"Average Turnaround Time: {avg_turnaround_time:.2f}"
+        result += f"Average Turnaround Time: {avg_turnaround_time:.2f}\n"
+        
+        result += '\n' + self.draw_gantt_chart(execution_order)
         
         return result
 
+    def draw_gantt_chart(self, execution_order):
+        gantt_chart = "|"
+        prev_process = execution_order[0]
+
+        for process in execution_order:
+            if process != prev_process:
+                gantt_chart += f"  P{prev_process + 1}  |"
+                prev_process = process
+            else:
+                prev_process = process
+                
+        gantt_chart += '  P' + str(execution_order[-1] + 1) + "  |"
+
+        top = '_' * len(gantt_chart)
+        bottom = '‾' * len(gantt_chart)
+        gantt_chart = 'Gantt Chart:\n' + top + '\n' + gantt_chart + '\n' + bottom
+
+        return gantt_chart
 
     def main(self):
         time_quantum = int(input("Enter the time quanta: "))
@@ -63,7 +86,7 @@ class Round_Robin():
         
         processes = [i + 1 for i in range(num_processes)]
         
-        self.round_robin(processes, arrival_time, burst_time, time_quantum)
+        print(self.round_robin(processes, arrival_time, burst_time, time_quantum))
 
 
 if __name__ == "__main__":
