@@ -219,7 +219,7 @@ def compare():
             elif algo == 'rr':
                 return run_rr(global_arrival_times, global_burst_times, global_time_quantum)
 
-    return render_template('compare.html', wt="--", tat="--")
+    return render_template('compare.html', at=global_arrival_times, bt=global_burst_times)
 
 
 # Route for returning to the main menu

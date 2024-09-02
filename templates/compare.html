@@ -12,26 +12,29 @@
 
 <body>
     <h1>Compare Algorithms</h1>
+
+    <div class="arrival-burst-banner">
+        <div id="banner-at" data-at="{{ at }}" class=" banner-box">Arrival Times: {{at}}</div>
+        <div id="banner-bt" data-bt="{{ bt }}" class=" banner-box">Burst Times: {{bt}}</div>
+    </div>
+
     <div class="algorithm-container">
         <div class="algorithm">
             <h2>FCFS</h2>
             <div id="fcfs-wt" class="result-box">Avg. Wt time: --</div>
             <div id="fcfs-tat" class="result-box">Avg. TAT time: --</div>
-            <!-- <div id="fcfs-no" class="result-box">Priority & time quantum is ignored --</div> -->
             <button onclick="runAlgorithm('fcfs')">CHECK</button>
         </div>
         <div class="algorithm">
             <h2>SJF Non Preemptive</h2>
             <div id="sjfnp-wt" class="result-box">Avg. Wt time: --</div>
             <div id="sjfnp-tat" class="result-box">Avg. TAT time: --</div>
-            <!-- <div id="sjfnp-no" class="result-box">Priority & time quantum is ignored --</div> -->
             <button onclick="runAlgorithm('sjfnp')">CHECK</button>
         </div>
         <div class="algorithm">
             <h2>SJF Preemptive</h2>
             <div id="sjfp-wt" class="result-box">Avg. Wt time: --</div>
             <div id="sjfp-tat" class="result-box">Avg. TAT time: --</div>
-            <!-- <div id="sjf-no" class="result-box">Priority & time quantum is ignored --</div> -->
             <button onclick="runAlgorithm('sjfp')">CHECK</button>
         </div>
         <div class="algorithm">

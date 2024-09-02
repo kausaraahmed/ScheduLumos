@@ -1,3 +1,12 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const at = document.getElementById('banner-at').getAttribute('data-at').split(" ");
+    const bt = document.getElementById('banner-bt').getAttribute('data-bt').split(" ");
+
+    document.getElementById('banner-at').innerText = `Arrival Times: ${at.join(", ")}`;
+    document.getElementById('banner-bt').innerText = `Burst Times: ${bt.join(", ")}`;
+});
+
+
 function runAlgorithm(algorithm) {
     const timeQuantum = document.getElementById('time-quantum') ? document.getElementById('time-quantum').value : '';
     const priority = document.getElementById('priority') ? document.getElementById('priority').value : '';
