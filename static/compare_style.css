@@ -1,0 +1,96 @@
+body {
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.algorithm-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.algorithm {
+    text-align: center;
+}
+
+.result-box {
+    width: 80%;
+    padding: 10px;
+    margin: 40px 0;
+    border: 2px solid #141619;
+    border-radius: 5px;
+    background-color: transparent;
+    width: 200px;
+    /* Set a fixed height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    /* margin: 40px 0; */
+    border: 2px solid #141619;
+    border-radius: 5px;
+    background-color: transparent;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    font-size: 13px;
+    font-family: 'Ubuntu' sans-serif;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #141619;
+    color: whitesmoke;
+    cursor: pointer;
+    margin-top: 10px;
+    /* margin-bottom: 2.5%; */
+    border: 2px solid transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+    border-color: #ED7847;
+    border-width: 2px;
+}
+
+.algorithm button {
+    padding: 10px 20px;
+    background-color: #141619;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.algorithm button:hover {
+    background-color: #555;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 95%;
+    text-align: center;
+    padding: 10px;
+    margin: 0 auto;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 12px;
+}

@@ -28,6 +28,9 @@
             <img src="{{ url_for('static', filename='file.png') }}" alt="Download Result"
                 style="width: 30px; height: 30px; cursor: pointer;">
         </a>
+        <a href="{{ url_for('compare')}}" class="send-compare" id="send_compare"
+            style="display: none; position: absolute; bottom: 10px; right: 10px;"><button>Compare Results</button>
+        </a>
         <div id="result"></div>
     </div>
 
@@ -56,6 +59,7 @@
                     downloadLink.href = url;
                     downloadLink.download = 'sjf_non_preemptive_result.txt';
                     downloadLink.style.display = 'flex';
+                    send_compare.style.display = 'flex';
                 })
                 .catch(error => console.error('Error:', error));
         });    

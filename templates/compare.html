@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Algorithms</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='compare_style.css') }}">
+</head>
+
+
+<body>
+    <h1>Compare Algorithms</h1>
+    <div class="algorithm-container">
+        <div class="algorithm">
+            <h2>FCFS</h2>
+            <div id="fcfs-wt" class="result-box">Avg. Wt time: --</div>
+            <div id="fcfs-tat" class="result-box">Avg. TAT time: --</div>
+            <!-- <div id="fcfs-no" class="result-box">Priority & time quantum is ignored --</div> -->
+            <button onclick="runAlgorithm('fcfs')">CHECK</button>
+        </div>
+        <div class="algorithm">
+            <h2>SJF Non Preemptive</h2>
+            <div id="sjfnp-wt" class="result-box">Avg. Wt time: --</div>
+            <div id="sjfnp-tat" class="result-box">Avg. TAT time: --</div>
+            <!-- <div id="sjfnp-no" class="result-box">Priority & time quantum is ignored --</div> -->
+            <button onclick="runAlgorithm('sjfnp')">CHECK</button>
+        </div>
+        <div class="algorithm">
+            <h2>SJF Preemptive</h2>
+            <div id="sjfp-wt" class="result-box">Avg. Wt time: --</div>
+            <div id="sjfp-tat" class="result-box">Avg. TAT time: --</div>
+            <!-- <div id="sjf-no" class="result-box">Priority & time quantum is ignored --</div> -->
+            <button onclick="runAlgorithm('sjfp')">CHECK</button>
+        </div>
+        <div class="algorithm">
+            <h2>Priority Scheduling</h2>
+            <div id="priority-wt" class="result-box">Avg. Wt time: --</div>
+            <div id="priority-tat" class="result-box">Avg. TAT time: --</div>
+            <input type="text" id="priority" name="priority" placeholder="Enter Priority (default FCFS)">
+            <br>
+            <button onclick="runAlgorithm('priority')">CHECK</button>
+        </div>
+        <div class="algorithm">
+            <h2>Round Robin</h2>
+            <div id="rr-wt" class="result-box">Avg. Wt time: --</div>
+            <div id="rr-tat" class="result-box">Avg. TAT time: --</div>
+            <input type="text" id="time-quantam" name="time-quantam" placeholder="Enter timequanta (default 2s)">
+            <br>
+            <button onclick="runAlgorithm('rr')">CHECK</button>
+        </div>
+    </div>
+
+    <a href="{{ url_for('index') }}" class="back_to_main"><button>Main Menu</button></a>
+    <script>
+        // Event listener for running other algorithms
+        function runAlgorithm(algorithm) {
+            const timeQuantam = document.getElementById('time-quantam').value;
+            const priority = document.getElementById('priority').value;
+
+            fetch(`/compare`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `algo=${algorithm}&tQ=${timeQuantam}&priority=${priority}`
+            })
+                .then(response => response.text())
+                .then(data => {
+                    const [tat, wt] = extractor(data);
+
+                    if (tat && wt) {
+                        document.getElementById(`${algorithm}-tat`).innerText = 'Avg. TAT time: ' + tat + 's';
+                        document.getElementById(`${algorithm}-wt`).innerText = 'Avg. Wt time: ' + wt + 's';
+                    } else {
+                        document.getElementById(`${algorithm}-tat`).innerText = 'Errorqq';
+                        document.getElementById(`${algorithm}-wt`).innerText = 'Errordf';
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function extractor(text) {
+            const waitingTimeMatch = text.match(/Average Waiting Time: (\d+\.\d+)/);
+            const turnaroundTimeMatch = text.match(/Average Turnaround Time: (\d+\.\d+)/);
+
+            const wt = waitingTimeMatch ? waitingTimeMatch[1] : null;
+            const tat = turnaroundTimeMatch ? turnaroundTimeMatch[1] : null;
+            return [tat, wt]
+        }
+
+    </script>
+
+    <footer>&copy; KAUS4R</footer>
+
+</body>
+
+</html>

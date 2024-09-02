@@ -85,7 +85,7 @@ class SJF_Preemtive:
         
         return result
 
-    def draw_gantt_chart(execution_order):
+    def draw_gantt_chart(self, execution_order):
         gantt_chart = "|"
         prev_process = execution_order[0]
 

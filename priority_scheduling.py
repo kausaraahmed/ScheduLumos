@@ -33,8 +33,8 @@ class Priority_Scheduling():
         for i in range(n):
             result += f"{sorted_processes[i]+1}\t\t{sorted_arrival_time[i]}\t\t{sorted_burst_time[i]}\t\t{completion_time[i]}\t\t{turnaround_time[i]}\t\t{waiting_time[i]}\n"
         
-        result += f"\nAverage Waiting Time is : {avg_waiting_time:.2f}\n"
-        result += f"Average Turn Around Time is : {avg_turnaround_time:.2f}"
+        result += f"\nAverage Waiting Time: {avg_waiting_time:.2f}\n"
+        result += f"Average Turnaround Time: {avg_turnaround_time:.2f}"
         
         return result
 

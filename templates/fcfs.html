@@ -28,13 +28,14 @@
             <img src="{{ url_for('static', filename='file.png') }}" alt="Download Result"
                 style="width: 30px; height: 30px; cursor: pointer;">
         </a>
+        <a href="{{ url_for('compare')}}" class="send-compare" id="send_compare"
+            style="display: none; position: absolute; bottom: 10px; right: 10px;"><button>Compare Results</button></a>
         <div id="result"></div>
     </div>
 
     <br>
 
     <a href="{{ url_for('index') }}" class="back_to_main"><button>Main Menu</button></a>
-
 
     <script>
         document.getElementById('run-algo').addEventListener('click', function () {
@@ -48,7 +49,7 @@
                 },
                 body: `arrival-time=${arrivalTimes}&burst-time=${burstTimes}`
             })
-                .then(response => response.text())  // Expecting text here instead of JSON
+                .then(response => response.text()) // Expecting text here instead of JSON
                 .then(data => {
                     document.getElementById('result').innerHTML = `<pre>${data}</pre>`;
                     const downloadLink = document.getElementById('download-link');
@@ -57,11 +58,35 @@
                     downloadLink.href = url;
                     downloadLink.download = 'fcfs_result.txt';
                     downloadLink.style.display = 'flex';
+                    send_compare.style.display = 'flex';
                 })
                 .catch(error => console.error('Error:', error));
         });
+
+        document.getElementById('send_compare').addEventListener('click', function () {
+            const arrivalTimes = document.getElementById('arrival-time').value;
+            const burstTimes = document.getElementById('burst-time').value;
+
+            fetch('/compare', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `arrival-time=${arrivalTimes}&burst-time=${burstTimes}`
+            })
+                .then(response => {
+                    if (response.ok) {
+                        window.location.href = "/compare";
+                    } else {
+                        console.error("Failed to send data to compare page.");
+                    }
+                }).catch(error => console.error('Error:', error));
+        });
+
     </script>
+
     <footer>&copy; KAUS4R</footer>
+    
 </body>
 
 </html>

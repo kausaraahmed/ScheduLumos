@@ -48,8 +48,8 @@ class Round_Robin():
         for i in range(n):
             result += f"{i + 1}\t\t{arrival_time[i]}\t\t{burst_time[i]}\t\t{waiting_time[i]}\t\t{turnaround_time[i]}\n"
         
-        result += f"\nAverage wait time : {avg_waiting_time:.2f}\n"
-        result += f"Average Turn Around Time : {avg_turnaround_time:.2f}"
+        result += f"\nAverage Waiting Time: {avg_waiting_time:.2f}\n"
+        result += f"Average Turnaround Time: {avg_turnaround_time:.2f}"
         
         return result
 
