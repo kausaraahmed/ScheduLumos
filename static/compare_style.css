@@ -1,5 +1,7 @@
 body {
     font-family: 'Ubuntu', sans-serif;
+    background-image: url("bg.jpg");
+    background-size: cover;
     text-align: center;
     padding: 20px;
 }
