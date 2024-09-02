@@ -1,14 +1,14 @@
 document.getElementById('run-algo').addEventListener('click', function () {
     const arrivalTimes = document.getElementById('arrival-time').value;
     const burstTimes = document.getElementById('burst-time').value;
-    const timeQuantam = document.getElementById('time-quantam').value;
+    const timeQuantum = document.getElementById('time-quantum').value;
 
     fetch('/round-robin', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
-        body: `arrival-time=${encodeURIComponent(arrivalTimes)}&burst-time=${encodeURIComponent(burstTimes)}&time-quantam=${encodeURIComponent(timeQuantam)}`
+        body: `arrival-time=${encodeURIComponent(arrivalTimes)}&burst-time=${encodeURIComponent(burstTimes)}&time-quantum=${encodeURIComponent(timeQuantum)}`
     })
         .then(response => response.text())
         .then(data => {
@@ -25,14 +25,14 @@ document.getElementById('run-algo').addEventListener('click', function () {
 document.getElementById('send_compare').addEventListener('click', function () {
     const arrivalTimes = document.getElementById('arrival-time').value;
     const burstTimes = document.getElementById('burst-time').value;
-    const timeQuantam = document.getElementById('time-quantam').value;
+    const timeQuantum = document.getElementById('time-quantum').value;
 
     fetch('/compare', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
-        body: `arrival-time=${arrivalTimes}&burst-time=${burstTimes}&time-quantam=${timeQuantam}`
+        body: `arrival-time=${arrivalTimes}&burst-time=${burstTimes}&time-quantum=${timeQuantum}`
     })
         .then(response => {
             if (response.ok) {

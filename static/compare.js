@@ -1,5 +1,5 @@
 function runAlgorithm(algorithm) {
-    const timeQuantam = document.getElementById('time-quantam') ? document.getElementById('time-quantam').value : '';
+    const timeQuantum = document.getElementById('time-quantum') ? document.getElementById('time-quantum').value : '';
     const priority = document.getElementById('priority') ? document.getElementById('priority').value : '';
 
     fetch(`/compare`, {
@@ -7,7 +7,7 @@ function runAlgorithm(algorithm) {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
-        body: `algo=${algorithm}&tQ=${timeQuantam}&priority=${priority}`
+        body: `algo=${algorithm}&tQ=${timeQuantum}&priority=${priority}`
     })
         .then(response => response.text())
         .then(data => {
