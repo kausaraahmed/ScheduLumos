@@ -1,3 +1,6 @@
+from python.utils import draw_gantt_chart
+
+
 class FCFS:
     def __init__(self):
         pass
@@ -20,12 +23,10 @@ class FCFS:
             wt[i] = max(wt[i], 0)  # Ensure non-negative waiting time
 
     def find_turnaround_time(self, n, bt, wt, tat):
-        """Calculates turnaround time for each process."""
         for i in range(n):
             tat[i] = bt[i] + wt[i]
 
     def find_average_time(self, processes, n, bt, at):
-        """Finds average waiting and turnaround times."""
         wt = [0] * n
         tat = [0] * n
         total_wt = 0
@@ -47,20 +48,9 @@ class FCFS:
         result += f"\nAverage Waiting Time: {avg_wt:.2f}\n"
         result += f"Average Turnaround Time: {avg_tat:.2f}\n"
 
-        result += '\n' + self.draw_gantt_chart(processes)
+        result += '\n' + draw_gantt_chart(processes)
 
         return result
-
-    def draw_gantt_chart(self, exe_order):
-        gantt_chart = '|'
-        for _ in exe_order:
-            gantt_chart += "  P" + str(_ + 1) + "  |"
-
-        top = '_' * len(gantt_chart)
-        bottom = '‾' * len(gantt_chart)
-        gantt_chart = 'Gantt Chart:\n' + top + '\n' + gantt_chart + '\n' + bottom
-
-        return gantt_chart
 
     def main(self):
         n = int(input("Enter the number of processes: "))

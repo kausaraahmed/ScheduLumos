@@ -1,3 +1,6 @@
+from python.utils import draw_gantt_chart
+
+
 class SjfPreemptive:
     def __init__(self):
         pass
@@ -19,7 +22,7 @@ class SjfPreemptive:
         while completed != n:
             # Find process with the shortest remaining time at current_time
             for j in range(n):
-                if (at[j] <= current_time and remaining_bt[j] < min_bt and remaining_bt[j] > 0):
+                if at[j] <= current_time and min_bt > remaining_bt[j] > 0:
                     min_bt = remaining_bt[j]
                     shortest = j
                     check = True
@@ -58,16 +61,16 @@ class SjfPreemptive:
 
         return execution_order
 
-    def findTurnAroundTime(self, n, bt, wt, tat):
+    def find_turn_around_time(self, n, bt, wt, tat):
         for i in range(n):
             tat[i] = bt[i] + wt[i]
 
-    def findAverageTime(self, n, processes, bt, at):
+    def find_average_time(self, n, processes, bt, at):
         wt = [0] * n
         tat = [0] * n
 
         execution_order = self.findWaitingTime(processes, n, bt, wt, at)
-        self.findTurnAroundTime(n, bt, wt, tat)
+        self.find_turn_around_time(n, bt, wt, tat)
 
         total_wt = sum(wt)
         total_tat = sum(tat)
@@ -81,43 +84,17 @@ class SjfPreemptive:
         result += f"\nAverage Waiting Time: {avg_wt:.2f}\n"
         result += f"Average Turnaround Time: {avg_tat:.2f}\n"
 
-        result += '\n' + self.draw_gantt_chart(execution_order)
+        result += '\n' + draw_gantt_chart(execution_order)
 
         return result
 
-    def draw_gantt_chart(self, execution_order):
-        gantt_chart = "|"
-        prev_process = execution_order[0]
-
-        for process in execution_order:
-            if process != prev_process:
-                gantt_chart += f"  P{prev_process + 1}  |"
-                prev_process = process
-            else:
-                prev_process = process
-
-        gantt_chart += '  P' + str(execution_order[len(execution_order) - 1] + 1) + "  |"
-
-        top = '_' * len(gantt_chart)
-        bottom = '‾' * len(gantt_chart)
-        gantt_chart = 'Gantt Chart:\n' + top + '\n' + gantt_chart + '\n' + bottom
-
-        return gantt_chart
-
     def main(self):
         n = int(input("Enter the number of processes: "))
-
         processes = list(range(n))
         burst_time = []
         arrival_time = []
 
-        for i in range(n):
-            at = int(input(f"Enter Arrival Time for Process {i}: "))
-            bt = int(input(f"Enter Burst Time for Process {i}: "))
-            arrival_time.append(at)
-            burst_time.append(bt)
-
-        self.findAverageTime(n, processes, burst_time, arrival_time)
+        self.find_average_time(n, processes, burst_time, arrival_time)
 
 
 if __name__ == "__main__":

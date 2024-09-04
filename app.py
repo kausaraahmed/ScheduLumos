@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from python.runalgorithm import RunAlgorithm
+from python.run_algorithms import run_fcfs, run_sjfnp, run_sjfp, run_priority, run_rr
 
 app = Flask(__name__)
 
@@ -10,14 +10,14 @@ def home():
     return render_template('index.html')
 
 
-# Route for the SJF Non-SjfPreemptive Algorithm page
+# Route for the FCFS Algorithm page
 @app.route('/fcfs', methods=['GET', 'POST'])
 def fcfs():
     if request.method == 'POST':
         arrival_times = request.form.get('arrival-time')
         burst_times = request.form.get('burst-time')
 
-        return RunAlgorithm().run_fcfs(arrival_times, burst_times)
+        return run_fcfs(arrival_times, burst_times)
 
     return render_template('fcfs.html')
 
@@ -29,7 +29,7 @@ def sjf_non_preemptive():
         arrival_times = request.form.get('arrival-time')
         burst_times = request.form.get('burst-time')
 
-        return RunAlgorithm().run_sjfnp(arrival_times, burst_times)
+        return run_sjfnp(arrival_times, burst_times)
 
     return render_template('sjf_non_preemptive.html')
 
@@ -41,7 +41,7 @@ def sjf_preemptive():
         arrival_times = request.form.get('arrival-time')
         burst_times = request.form.get('burst-time')
 
-        return RunAlgorithm().run_sjfp(arrival_times, burst_times)
+        return run_sjfp(arrival_times, burst_times)
 
     return render_template('sjf_preemptive.html')
 
@@ -54,7 +54,7 @@ def priority_scheduling():
         burst_times = request.form.get('burst-time')
         priority = request.form.get('priority')
 
-        return RunAlgorithm().run_priority(arrival_times, burst_times, priority)
+        return run_priority(arrival_times, burst_times, priority)
 
     return render_template('priority_scheduling.html')
 
@@ -67,7 +67,7 @@ def round_robin():
         burst_times = request.form.get('burst-time')
         time_quantum = request.form.get('time-quantum')
 
-        return RunAlgorithm().run_rr(arrival_times, burst_times, time_quantum)
+        return run_rr(arrival_times, burst_times, time_quantum)
 
     return render_template('round_robin.html')
 
@@ -92,24 +92,23 @@ def compare():
             global_priority = request.form.get('priority')
 
         else:
-            run = RunAlgorithm()
             global_time_quantum = request.form.get('tQ')
             global_priority = request.form.get('priority')
 
             if algo == 'fcfs':
-                return run.run_fcfs(global_arrival_times, global_burst_times)
+                return run_fcfs(global_arrival_times, global_burst_times)
 
             elif algo == 'sjfnp':
-                return run.run_sjfnp(global_arrival_times, global_burst_times)
+                return run_sjfnp(global_arrival_times, global_burst_times)
 
             if algo == 'sjfp':
-                return run.run_sjfp(global_arrival_times, global_burst_times)
+                return run_sjfp(global_arrival_times, global_burst_times)
 
             elif algo == 'priority':
-                return run.run_priority(global_arrival_times, global_burst_times, global_priority)
+                return run_priority(global_arrival_times, global_burst_times, global_priority)
 
             elif algo == 'rr':
-                return run.run_rr(global_arrival_times, global_burst_times, global_time_quantum)
+                return run_rr(global_arrival_times, global_burst_times, global_time_quantum)
 
     return render_template('compare.html', at=global_arrival_times, bt=global_burst_times)
 
