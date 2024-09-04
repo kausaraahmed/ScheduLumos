@@ -1,4 +1,4 @@
-from python.utils import draw_gantt_chart
+from python.utils import Utils
 
 
 class SjfPreemptive:
@@ -84,7 +84,7 @@ class SjfPreemptive:
         result += f"\nAverage Waiting Time: {avg_wt:.2f}\n"
         result += f"Average Turnaround Time: {avg_tat:.2f}\n"
 
-        result += '\n' + draw_gantt_chart(execution_order)
+        result += '\n' + Utils().draw_gantt_chart(execution_order)
 
         return result
 

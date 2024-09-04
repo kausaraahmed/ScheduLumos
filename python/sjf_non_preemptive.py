@@ -1,4 +1,4 @@
-from python.utils import draw_gantt_chart
+from python.utils import Utils
 
 
 class SjfNonPreemptive:
@@ -56,7 +56,7 @@ class SjfNonPreemptive:
         result += f"\nAverage Waiting Time: {total_wt / n:.2f}\n"
         result += f"Average Turnaround Time: {total_tat / n:.2f}\n"
 
-        result += '\n' + draw_gantt_chart(execution_order)
+        result += '\n' + Utils().draw_gantt_chart(execution_order)
 
         return result
 

@@ -1,4 +1,4 @@
-from python.utils import draw_gantt_chart
+from python.utils import Utils
 
 
 class FCFS:
@@ -48,7 +48,7 @@ class FCFS:
         result += f"\nAverage Waiting Time: {avg_wt:.2f}\n"
         result += f"Average Turnaround Time: {avg_tat:.2f}\n"
 
-        result += '\n' + draw_gantt_chart(processes)
+        result += '\n' + Utils().draw_gantt_chart(processes)
 
         return result
 
