@@ -1,6 +1,6 @@
 # ScheduLumos
 
- ![ScheduLumos Screenshot](static/screenshot.png)
+![ScheduLumos Screenshot](static/screenshot.png)
 
 ## Table of Contents
 
@@ -21,11 +21,15 @@
 - [Contributing](#contributing)
 
 ## Introduction
-**ScheduLumos** is a web application designed to simulate and visualize various CPU scheduling algorithms. The application allows users to input parameters such as arrival time, burst time, and priority to understand how different algorithms schedule processes. This tool is particularly useful for students and educators in computer science to learn and demonstrate the behavior of CPU scheduling algorithms.
+
+**ScheduLumos** is a web application designed to simulate and visualize various CPU scheduling algorithms. The
+application allows users to input parameters such as arrival time, burst time, and priority to understand how different
+algorithms schedule processes. This tool is particularly useful for students and educators in computer science to learn
+and demonstrate the behavior of CPU scheduling algorithms.
 
 ## Features
 
--  **Multiple Algorithms**: Supports various CPU scheduling algorithms including:
+- **Multiple Algorithms**: Supports various CPU scheduling algorithms including:
 
 - First-Come, First-Served (FCFS)
 
@@ -35,19 +39,22 @@
 
 - Round Robin (RR)
 
--  **Interactive Input**: Users can input process details like arrival time, burst time, and priority through an intuitive UI.
+- **Interactive Input**: Users can input process details like arrival time, burst time, and priority through an
+  intuitive UI.
 
-  -  **Exception Handling**: It is also packed with error handling capabilities. for example, provokes non-numeric input, uneven arrival and burst time, and such. 
+- **Exception Handling**: It is also packed with error handling capabilities. for example, provokes non-numeric input,
+  uneven arrival and burst time, and such.
 
--  **Results Visualization**: The site displays the execution order of processes along with average waiting time, turnaround time, and other relevant metrics.
+- **Results Visualization**: The site displays the execution order of processes along with average waiting time,
+  turnaround time, and other relevant metrics.
 
--  **Download Results**: Users can download the scheduling results as a `.txt` file for further analysis.
+- **Download Results**: Users can download the scheduling results as a `.txt` file for further analysis.
 
--  **Responsive Design**: The interface is responsive and works well on both desktop and mobile devices.
- 
+- **Responsive Design**: The interface is responsive and works well on both desktop and mobile devices.
 
 ## Technologies Used
--  **Frontend**:
+
+- **Frontend**:
 
 - HTML5
 
@@ -55,13 +62,13 @@
 
 - JavaScript (for interactive features)
 
--  **Backend**:
+- **Backend**:
 
 - Python
 
 - Flask (web framework)
 
--  **Deployment**:
+- **Deployment**:
 
 - Render (for hosting the application)
 
@@ -70,6 +77,7 @@
 ## Setup
 
 ### Prerequisites
+
 - Python 3.x
 
 - Git (for cloning the repository)
@@ -78,7 +86,8 @@
 
 ### Installation
 
-1.  **Clone the repository:**
+1. **Clone the repository:**
+
 ```bash
 
 git clone https://github.com/kausaraahmed/scheduLumos.git
@@ -87,7 +96,7 @@ cd scheduLumos
 
 ```
 
-2.  **Install dependencies:**
+2. **Install dependencies:**
 
 It's recommended to use a virtual environment:
 
@@ -100,49 +109,49 @@ source venv/bin/activate # On Windows use `venv\Scripts\activate`
 pip  install  -r  requirements.txt
 
 ```
-3.  **Run the application locally:**
+
+3. **Run the application locally:**
+
 ```bash
 
 flask run
 
 ```
+
 The application will be accessible at `http://127.0.0.1:5000/`.
 
-  
-
 ### Deployment
-The application is deployed on [Render](https://render.com/). To deploy your own version, push your changes to GitHub, and Render will automatically build and deploy the application.
 
-  
+The application is deployed on [Render](https://render.com/). To deploy your own version, push your changes to GitHub,
+and Render will automatically build and deploy the application.
 
 ## Usage
 
-1.  **Access the application:**
-Open the deployed site or run it locally as described above.
+1. **Access the application:**
+   Open the deployed site or run it locally as described above.
 
-2.  **Navigate through scheduling options:**
-From the main menu, select the scheduling algorithm you want to simulate.
+2. **Navigate through scheduling options:**
+   From the main menu, select the scheduling algorithm you want to simulate.
 
-3.  **Input process details:**
-Provide the necessary inputs like arrival time, burst time, and priority (if applicable).
+3. **Input process details:**
+   Provide the necessary inputs like arrival time, burst time, and priority (if applicable).
 
-4.  **Run the algorithm:**
-Click on the "Run Algorithm" button to view the scheduling results.
+4. **Run the algorithm:**
+   Click on the "Run Algorithm" button to view the scheduling results.
 
-5.  **Download results:**
-After the results are displayed, click the download icon in the top right corner to save the results as a `.txt` file.
-
-  
+5. **Download results:**
+   After the results are displayed, click the download icon in the top right corner to save the results as a `.txt`
+   file.
 
 ## Deployed Site
+
 The application is live and accessible at: [https://schedulumos.onrender.com/](https://schedulumos.onrender.com/)
 
-  
-
 ## License
+
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-  
-
 ## Contributing
-Contributions are welcome! Please fork the repository and create a pull request with your changes. Ensure that your code follows the existing style and conventions.
+
+Contributions are welcome! Please fork the repository and create a pull request with your changes. Ensure that your code
+follows the existing style and conventions.

@@ -1,4 +1,4 @@
-class SJF_Preemtive:
+class SjfPreemptive:
     def __init__(self):
         pass
 
@@ -78,11 +78,11 @@ class SJF_Preemtive:
 
         avg_wt = total_wt / n
         avg_tat = total_tat / n
-        result+= f"\nAverage Waiting Time: {avg_wt:.2f}\n"
+        result += f"\nAverage Waiting Time: {avg_wt:.2f}\n"
         result += f"Average Turnaround Time: {avg_tat:.2f}\n"
-        
+
         result += '\n' + self.draw_gantt_chart(execution_order)
-        
+
         return result
 
     def draw_gantt_chart(self, execution_order):
@@ -95,7 +95,7 @@ class SJF_Preemtive:
                 prev_process = process
             else:
                 prev_process = process
-                
+
         gantt_chart += '  P' + str(execution_order[len(execution_order) - 1] + 1) + "  |"
 
         top = '_' * len(gantt_chart)
@@ -103,12 +103,10 @@ class SJF_Preemtive:
         gantt_chart = 'Gantt Chart:\n' + top + '\n' + gantt_chart + '\n' + bottom
 
         return gantt_chart
-        
-        
 
     def main(self):
         n = int(input("Enter the number of processes: "))
-        
+
         processes = list(range(n))
         burst_time = []
         arrival_time = []
@@ -121,6 +119,7 @@ class SJF_Preemtive:
 
         self.findAverageTime(n, processes, burst_time, arrival_time)
 
+
 if __name__ == "__main__":
-    scheduler = SJF_Preemtive()
+    scheduler = SjfPreemptive()
     scheduler.main()

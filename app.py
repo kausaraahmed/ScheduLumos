@@ -1,10 +1,5 @@
 from flask import Flask, render_template, request
-from run_algorithm import Run_Algorithm
-from fcfs import FCFS
-from SJF_nonPreemptive import SJF_nonPreemtive
-from SJF_Preemptive import SJF_Preemtive
-from priority_scheduling import Priority_Scheduling
-from round_robin import Round_Robin
+from python.runalgorithm import RunAlgorithm
 
 app = Flask(__name__)
 
@@ -15,38 +10,38 @@ def home():
     return render_template('index.html')
 
 
-# Route for the SJF Non-Preemptive Algorithm page
+# Route for the SJF Non-SjfPreemptive Algorithm page
 @app.route('/fcfs', methods=['GET', 'POST'])
 def fcfs():
     if request.method == 'POST':
         arrival_times = request.form.get('arrival-time')
         burst_times = request.form.get('burst-time')
 
-        return Run_Algorithm().run_fcfs(arrival_times, burst_times)
+        return RunAlgorithm().run_fcfs(arrival_times, burst_times)
 
     return render_template('fcfs.html')
 
 
-# Route for the SJF Non-Preemptive Algorithm page
+# Route for the SJF Non-SjfPreemptive Algorithm page
 @app.route('/sjf-non-preemptive', methods=['GET', 'POST'])
 def sjf_non_preemptive():
     if request.method == 'POST':
         arrival_times = request.form.get('arrival-time')
         burst_times = request.form.get('burst-time')
 
-        return Run_Algorithm().run_sjfnp(arrival_times, burst_times)
+        return RunAlgorithm().run_sjfnp(arrival_times, burst_times)
 
     return render_template('sjf_non_preemptive.html')
 
 
-# Route for the SJF Preemptive Algorithm page
+# Route for the SJF SjfPreemptive Algorithm page
 @app.route('/sjf-preemptive', methods=['GET', 'POST'])
 def sjf_preemptive():
     if request.method == 'POST':
         arrival_times = request.form.get('arrival-time')
         burst_times = request.form.get('burst-time')
 
-        return Run_Algorithm().run_sjfp(arrival_times, burst_times)
+        return RunAlgorithm().run_sjfp(arrival_times, burst_times)
 
     return render_template('sjf_preemptive.html')
 
@@ -59,7 +54,7 @@ def priority_scheduling():
         burst_times = request.form.get('burst-time')
         priority = request.form.get('priority')
 
-        return Run_Algorithm().run_priority(arrival_times, burst_times, priority)
+        return RunAlgorithm().run_priority(arrival_times, burst_times, priority)
 
     return render_template('priority_scheduling.html')
 
@@ -72,7 +67,7 @@ def round_robin():
         burst_times = request.form.get('burst-time')
         time_quantum = request.form.get('time-quantum')
 
-        return Run_Algorithm().run_rr(arrival_times, burst_times, time_quantum)
+        return RunAlgorithm().run_rr(arrival_times, burst_times, time_quantum)
 
     return render_template('round_robin.html')
 
@@ -97,7 +92,7 @@ def compare():
             global_priority = request.form.get('priority')
 
         else:
-            run = Run_Algorithm()
+            run = RunAlgorithm()
             global_time_quantum = request.form.get('tQ')
             global_priority = request.form.get('priority')
 

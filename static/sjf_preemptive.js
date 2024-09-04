@@ -13,7 +13,7 @@ document.getElementById('run-algo').addEventListener('click', function () {
         .then(data => {
             document.getElementById('result').innerHTML = `<pre>${data}</pre>`;
             const downloadLink = document.getElementById('download-link');
-            const blob = new Blob([data], { type: 'text/plain' });
+            const blob = new Blob([data], {type: 'text/plain'});
             const url = URL.createObjectURL(blob);
             downloadLink.href = url;
             downloadLink.download = 'sjf_preemptive_result.txt';

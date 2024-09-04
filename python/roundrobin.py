@@ -1,7 +1,7 @@
-class Round_Robin():    
+class RoundRobin:
     def __init__(self):
         pass
-    
+
     def round_robin(self, processes, arrival_time, burst_time, time_quantum):
         n = len(processes)
         remaining_burst_time = burst_time[:]
@@ -50,12 +50,12 @@ class Round_Robin():
         result = "Program No.\tArrival Time\tBurst Time\tWait Time\tTurnAround Time\n"
         for i in range(n):
             result += f"{i + 1}\t\t{arrival_time[i]}\t\t{burst_time[i]}\t\t{waiting_time[i]}\t\t{turnaround_time[i]}\n"
-        
+
         result += f"\nAverage Waiting Time: {avg_waiting_time:.2f}\n"
         result += f"Average Turnaround Time: {avg_turnaround_time:.2f}\n"
-        
+
         result += '\n' + self.draw_gantt_chart(execution_order)
-        
+
         return result
 
     def draw_gantt_chart(self, execution_order):
@@ -68,7 +68,7 @@ class Round_Robin():
                 prev_process = process
             else:
                 prev_process = process
-                
+
         gantt_chart += '  P' + str(execution_order[-1] + 1) + "  |"
 
         top = '_' * len(gantt_chart)
@@ -80,15 +80,15 @@ class Round_Robin():
     def main(self):
         time_quantum = int(input("Enter the time quanta: "))
         num_processes = int(input("Enter the number of processes: "))
-        
+
         arrival_time = list(map(int, input("Enter the arrival time of the processes: ").split()))
         burst_time = list(map(int, input("Enter the burst time of the processes: ").split()))
-        
+
         processes = [i + 1 for i in range(num_processes)]
-        
+
         print(self.round_robin(processes, arrival_time, burst_time, time_quantum))
 
 
 if __name__ == "__main__":
-    scheduler = Round_Robin()
+    scheduler = RoundRobin()
     scheduler.main()

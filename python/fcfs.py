@@ -1,9 +1,8 @@
-class FCFS():
+class FCFS:
     def __init__(self):
         pass
 
     def sort_processes(self, n, processes, bt, at):
-        """Sorts processes by arrival time."""
         for i in range(n - 1):
             for j in range(n - i - 1):
                 if at[j] > at[j + 1]:
@@ -13,7 +12,6 @@ class FCFS():
                     processes[j], processes[j + 1] = processes[j + 1], processes[j]
 
     def find_waiting_time(self, n, bt, wt, at):
-        """Calculates waiting time for each process."""
         service_time = [at[0]]
         wt[0] = 0
         for i in range(1, n):
@@ -41,29 +39,29 @@ class FCFS():
         for i in range(n):
             total_wt += wt[i]
             total_tat += tat[i]
-            result += f"{processes[i]+1}\t{at[i]}\t\t{bt[i]}\t\t{wt[i]}\t\t{tat[i]}\n"
+            result += f"{processes[i] + 1}\t{at[i]}\t\t{bt[i]}\t\t{wt[i]}\t\t{tat[i]}\n"
 
         avg_wt = total_wt / n
         avg_tat = total_tat / n
-        
+
         result += f"\nAverage Waiting Time: {avg_wt:.2f}\n"
         result += f"Average Turnaround Time: {avg_tat:.2f}\n"
-        
+
         result += '\n' + self.draw_gantt_chart(processes)
-        
+
         return result
-    
+
     def draw_gantt_chart(self, exe_order):
         gantt_chart = '|'
         for _ in exe_order:
-            gantt_chart += "  P" + str(_+1) +"  |"
+            gantt_chart += "  P" + str(_ + 1) + "  |"
 
         top = '_' * len(gantt_chart)
         bottom = '‾' * len(gantt_chart)
         gantt_chart = 'Gantt Chart:\n' + top + '\n' + gantt_chart + '\n' + bottom
 
         return gantt_chart
-        
+
     def main(self):
         n = int(input("Enter the number of processes: "))
 
@@ -76,6 +74,7 @@ class FCFS():
             burst_time.append(int(input(f"Enter Burst Time for Process {i}: ")))
 
         self.find_average_time(processes, n, burst_time, arrival_time)
+
 
 if __name__ == "__main__":
     scheduler = FCFS()
