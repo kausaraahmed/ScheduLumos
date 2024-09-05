@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <title>SJF - Non Preemptive Algorithm</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='fav.png' ) }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/fav.png' ) }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap">
-    <link rel="stylesheet" href="{{ url_for('static', filename='algorithm_page_style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/algorithm_page_style.css') }}">
 </head>
 
 <body>
@@ -25,7 +25,7 @@
 
 <div id="result-container" style="position: relative">
     <a id="download-link" href="#" style="display: none; position: absolute; top: 10px; right: 10px;">
-        <img src="{{ url_for('static', filename='file.png') }}" alt="Download Result"
+        <img src="{{ url_for('static', filename='images/file.png') }}" alt="Download Result"
              style="width: 30px; height: 30px; cursor: pointer;">
     </a>
     <a href="{{ url_for('compare') }}" class="send-compare" id="send_compare"
@@ -41,15 +41,15 @@
     <button>Main Menu</button>
 </a>
 
-<script src="{{ url_for('static', filename='sjf_non_preemptive.js') }}"></script>
+<script src="{{ url_for('static', filename='js/sjf_non_preemptive.js') }}"></script>
 
 <footer>
     &copy; KAUS4R&nbsp; &nbsp;| &nbsp;
     <a href="https://github.com/kausaraahmed/ScheduLumos" class="socio-link" target="_blank">
-        <img src="{{ url_for('static', filename='github.png') }} " width="17px"></a>
+        <img src="{{ url_for('static', filename='images/github.png') }} " width="17px" alt="GitHub"></a>
     &nbsp;
     <a href="https://www.linkedin.com/in/kausaraahmed/" class="socio-link" target="_blank">
-        <img src="{{ url_for('static', filename='linkedin.png') }} " width="17px"></a>
+        <img src="{{ url_for('static', filename='images/linkedin.png') }} " width="17px" alt="LinkedIn"></a>
 </footer>
 
 </body>

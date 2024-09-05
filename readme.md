@@ -1,6 +1,6 @@
 # ScheduLumos
 
-![ScheduLumos Screenshot](static/screenshot.png)
+![ScheduLumos Screenshot](static/images/screenshot.png)
 
 ## Table of Contents
 
