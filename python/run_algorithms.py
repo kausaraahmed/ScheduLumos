@@ -108,6 +108,9 @@ class RunAlgorithms:
                 raise Exception("Number of Arrival Time and Burst Time must be equal.")
             elif time_quantum < 1:
                 raise Exception("Time Quantum must be greater than 0.")
+            
+            Utils().input_validation(arrival_times)
+            Utils().input_validation(burst_times)           
 
             return RoundRobin().round_robin(processes, arrival_times, burst_times, time_quantum)
 

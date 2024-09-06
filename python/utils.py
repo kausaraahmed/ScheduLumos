@@ -19,4 +19,4 @@ class Utils:
     def input_validation(self, times):
         for i in times:
             if i < 0:
-                raise Exception("All Arrival Times and Burst Times must be positive.")
+                raise Exception("All Inputs must be positive.")

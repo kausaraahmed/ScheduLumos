@@ -39,6 +39,7 @@ h1 {
     width: 12vw;
     height: 12vh;
     transition: all 0.4s ease-in-out;
+    cursor: pointer;
 }
 
 .button:hover {
