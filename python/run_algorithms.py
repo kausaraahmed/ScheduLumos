@@ -105,9 +105,9 @@ class RunAlgorithms:
             processes = list(range(n))
 
             if n != len(burst_times):
-                raise Exception("ERROR!!\n\nNumber of Arrival Time and Burst Time must be equal.")
+                raise Exception("Number of Arrival Time and Burst Time must be equal.")
             elif time_quantum < 1:
-                raise Exception("ERROR!!\n\nTime Quantum must be greater than 0.")
+                raise Exception("Time Quantum must be greater than 0.")
 
             return RoundRobin().round_robin(processes, arrival_times, burst_times, time_quantum)
 

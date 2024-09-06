@@ -9,11 +9,11 @@ document.getElementById('run-algo').addEventListener('click', function () {
         },
         body: `arrival-time=${arrivalTimes}&burst-time=${burstTimes}`
     })
-        .then(response => response.text()) // Expecting text here instead of JSON
+        .then(response => response.text())
         .then(data => {
             document.getElementById('result').innerHTML = `<pre>${data}</pre>`;
             const downloadLink = document.getElementById('download-link');
-            const blob = new Blob([data], {type: 'text/plain'});
+            const blob = new Blob([data], { type: 'text/plain' });
             const url = URL.createObjectURL(blob);
             downloadLink.href = url;
             downloadLink.download = 'fcfs_result.txt';

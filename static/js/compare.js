@@ -2,6 +2,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const at = document.getElementById('banner-at').getAttribute('data-at').split(" ");
     const bt = document.getElementById('banner-bt').getAttribute('data-bt').split(" ");
 
+    const algorithms = ['fcfs', 'sjfnp', 'sjfp'];
+    algorithms.forEach(algo => {
+        runAlgorithm(algo);
+    });
     document.getElementById('banner-at').innerText = `Arrival Times: ${at.join(", ")}`;
     document.getElementById('banner-bt').innerText = `Burst Times: ${bt.join(", ")}`;
 });

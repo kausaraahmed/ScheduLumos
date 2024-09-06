@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+
 from python.run_algorithms import RunAlgorithms
 
 app = Flask(__name__)
@@ -80,6 +81,7 @@ def compare():
     global global_time_quantum
     global global_priority
     global algo
+    global gtta
 
     if request.method == 'POST':
         algo = request.form.get('algo')
