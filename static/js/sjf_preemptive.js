@@ -2,7 +2,7 @@ document.getElementById('run-algo').addEventListener('click', function () {
     const arrivalTimes = document.getElementById('arrival-time').value;
     const burstTimes = document.getElementById('burst-time').value;
 
-    fetch('/sjf-non-preemptive', {
+    fetch('/sjf-preemptive', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'

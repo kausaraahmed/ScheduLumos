@@ -5,7 +5,7 @@ class SjfPreemptive:
     def __init__(self):
         pass
 
-    def findWaitingTime(self, processes, n, bt, wt, at):
+    def find_waiting_time(self, processes, n, bt, wt, at):
         remaining_bt = bt[:]
         completed = 0
         current_time = 0
@@ -23,6 +23,7 @@ class SjfPreemptive:
             # Find process with the shortest remaining time at current_time
             for j in range(n):
                 if at[j] <= current_time and min_bt > remaining_bt[j] > 0:
+                # if at[j] <= current_time and remaining_bt[j] < min_bt and remaining_bt[j] > 0:
                     min_bt = remaining_bt[j]
                     shortest = j
                     check = True
@@ -69,7 +70,7 @@ class SjfPreemptive:
         wt = [0] * n
         tat = [0] * n
 
-        execution_order = self.findWaitingTime(processes, n, bt, wt, at)
+        execution_order = self.find_waiting_time(processes, n, bt, wt, at)
         self.find_turn_around_time(n, bt, wt, tat)
 
         total_wt = sum(wt)
