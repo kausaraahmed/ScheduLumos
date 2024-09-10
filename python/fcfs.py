@@ -48,24 +48,6 @@ class FCFS:
         result += f"\nAverage Waiting Time: {avg_wt:.2f}\n"
         result += f"Average Turnaround Time: {avg_tat:.2f}\n"
 
-        result += '\n' + Utils().draw_gantt_chart(processes)
+        result += "\n" + Utils().draw_gantt_chart(processes)
 
         return result
-
-    def main(self):
-        n = int(input("Enter the number of processes: "))
-
-        processes = list(range(n))
-        burst_time = []
-        arrival_time = []
-
-        for i in range(n):
-            arrival_time.append(int(input(f"Enter Arrival Time for Process {i}: ")))
-            burst_time.append(int(input(f"Enter Burst Time for Process {i}: ")))
-
-        self.find_average_time(processes, n, burst_time, arrival_time)
-
-
-if __name__ == "__main__":
-    scheduler = FCFS()
-    scheduler.main()

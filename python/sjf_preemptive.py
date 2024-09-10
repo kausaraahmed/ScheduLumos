@@ -9,7 +9,7 @@ class SjfPreemptive:
         remaining_bt = bt[:]
         completed = 0
         current_time = 0
-        min_bt = float('inf')
+        min_bt = float("inf")
         shortest = 0
         finish_time = 0
         check = False
@@ -23,7 +23,6 @@ class SjfPreemptive:
             # Find process with the shortest remaining time at current_time
             for j in range(n):
                 if at[j] <= current_time and min_bt > remaining_bt[j] > 0:
-                # if at[j] <= current_time and remaining_bt[j] < min_bt and remaining_bt[j] > 0:
                     min_bt = remaining_bt[j]
                     shortest = j
                     check = True
@@ -41,7 +40,7 @@ class SjfPreemptive:
             # Update minimum
             min_bt = remaining_bt[shortest]
             if min_bt == 0:
-                min_bt = float('inf')
+                min_bt = float("inf")
 
             # If a process gets completely executed
             if remaining_bt[shortest] == 0:
@@ -85,19 +84,6 @@ class SjfPreemptive:
         result += f"\nAverage Waiting Time: {avg_wt:.2f}\n"
         result += f"Average Turnaround Time: {avg_tat:.2f}\n"
 
-        result += '\n' + Utils().draw_gantt_chart(execution_order)
+        result += "\n" + Utils().draw_gantt_chart(execution_order)
 
         return result
-
-    def main(self):
-        n = int(input("Enter the number of processes: "))
-        processes = list(range(n))
-        burst_time = []
-        arrival_time = []
-
-        self.find_average_time(n, processes, burst_time, arrival_time)
-
-
-if __name__ == "__main__":
-    scheduler = SjfPreemptive()
-    scheduler.main()

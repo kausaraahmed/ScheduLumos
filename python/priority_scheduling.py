@@ -45,18 +45,3 @@ class PriorityScheduling:
         result += '\n' + Utils().draw_gantt_chart(execution_order)
 
         return result
-
-    def main(self):
-        num_processes = int(input("Enter the number of processes: "))
-
-        processes = list(range(num_processes))
-        arrival_time = list(map(int, input("Enter the arrival time of the processes: ").split()))
-        burst_time = list(map(int, input("Enter the burst time of the processes: ").split()))
-        priority = list(map(int, input("Enter the priority of the processes: ").split()))
-
-        self.priority_scheduling(processes, arrival_time, burst_time, priority)
-
-
-if __name__ == "__main__":
-    scheduler = PriorityScheduling()
-    scheduler.main()

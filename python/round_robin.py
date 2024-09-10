@@ -60,19 +60,3 @@ class RoundRobin:
         result += '\n' + Utils().draw_gantt_chart(execution_order)
 
         return result
-
-    def main(self):
-        time_quantum = int(input("Enter the time quanta: "))
-        num_processes = int(input("Enter the number of processes: "))
-
-        arrival_time = list(map(int, input("Enter the arrival time of the processes: ").split()))
-        burst_time = list(map(int, input("Enter the burst time of the processes: ").split()))
-
-        processes = [i + 1 for i in range(num_processes)]
-
-        self.round_robin(processes, arrival_time, burst_time, time_quantum)
-
-
-if __name__ == "__main__":
-    scheduler = RoundRobin()
-    scheduler.main()

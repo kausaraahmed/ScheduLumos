@@ -59,16 +59,3 @@ class SjfNonPreemptive:
         result += '\n' + Utils().draw_gantt_chart(execution_order)
 
         return result
-
-    def main(self):
-        n = int(input("Enter the number of processes: "))
-        processes = list(range(n))
-        burst_time = []
-        arrival_time = []
-
-        self.find_average_time(n, processes, burst_time, arrival_time)
-
-
-if __name__ == "__main__":
-    scheduler = SjfNonPreemptive()
-    scheduler.main()

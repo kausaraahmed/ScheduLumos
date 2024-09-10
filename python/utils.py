@@ -20,3 +20,4 @@ class Utils:
         for i in times:
             if i < 0:
                 raise Exception("All Inputs must be positive.")
+
