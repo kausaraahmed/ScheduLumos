@@ -145,7 +145,7 @@ and Render will automatically build and deploy the application.
 
 ## Deployed Site
 
-The application is live and accessible at: [https://schedulumos.onrender.com/](https://schedulumos.onrender.com/)
+The application is live and accessible at: [https://schedulumos.vercel.app](https://schedulumos.vercel.app)
 
 ## License
 
