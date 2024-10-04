@@ -1,7 +1,8 @@
 body {
     background-image: url("../images/bg.jpg");
     background-size: cover;
-    width: 80%;
+    background-repeat: no-repeat;
+    width: 90%;
     font-family: 'Ubuntu', sans-serif;
     text-align: center;
     margin: 0 auto;
@@ -15,37 +16,38 @@ h1 {
     color: #101010;
 }
 
+a {
+    text-decoration: none;
+}
+
 .button-container {
     display: flex;
+    height: 30vw;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 6%;
-    margin: auto;
+    margin-top: 4%;
 }
 
 .button {
     display: flex;
+    width: 20vw;
+    height: 8vw;
     justify-content: center;
     align-items: center;
     padding: 1.75% 2%;
-    margin: 6% 6% auto;
+    margin: 2vw 4vw auto;
     background: #141619;
     color: whitesmoke;
-    text-decoration: none;
-    font-size: 1.8vw;
-    font-family: 'Ubuntu', sans-serif;
-    border: 3px solid transparent;
-    border-radius: 15px 50px;
-    width: 12vw;
-    height: 12vh;
-    transition: all 0.4s ease-in-out;
+    font-size: 2vw;
+    border: 0.3vw solid transparent;
+    border-radius: 1vw 4vw;
+    transition: 0.2s ease-in-out;
     cursor: pointer;
 }
 
 .button:hover {
-    border-color: #ED7847;
+    border: 0.3vw solid #ec6126;
     background-color: #141619f5;
-    border-width: 3px;
 }
 
 footer {
@@ -75,4 +77,33 @@ footer {
 
 .socio-link:hover {
     scale: 1.1;
+}
+
+@media screen and (max-width: 767px) {
+    body {
+        background-size: auto;
+        width: 80%;
+    }
+
+    h1 {
+        font-size: 10vw;
+        margin-top: 10%;
+        font-weight: bold;
+        color: #101010;
+    }
+
+    .button-container {
+        width: 100%;
+        height: auto;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .button {
+        width: 40vw;
+        height: 13vw;
+        margin: 13% auto;
+        font-size: 3.5vw;
+    }
 }

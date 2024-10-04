@@ -11,24 +11,34 @@
 </head>
 
 <body>
-<h1>ScheduLumos</h1>
+    <h1>ScheduLumos</h1>
 
-<div class="button-container">
-    <a href="{{ url_for('fcfs') }}" class="button">FCFS</a>
-    <a href="{{ url_for('sjf_non_preemptive') }}" class="button">SJF Non-Preemptive</a>
-    <a href="{{ url_for('sjf_preemptive') }}" class="button">SJF Preemptive</a>
-    <a href="{{ url_for('priority_scheduling') }}" class="button">Priority Scheduling</a>
-    <a href="{{ url_for('round_robin') }}" class="button">Round Robin</a>
-</div>
+    <div class="button-container">
+        <a href="{{ url_for('fcfs') }}">
+            <div class="button">FCFS</div>
+        </a>
+        <a href="{{ url_for('sjf_non_preemptive') }}">
+            <div class="button">SJF Non-Preemptive</div>
+        </a>
+        <a href="{{ url_for('sjf_preemptive') }}">
+            <div class="button">SJF Preemptive</div>
+        </a>
+        <a href="{{ url_for('priority_scheduling') }}">
+            <div class="button">Priority Scheduling</div>
+        </a>
+        <a href="{{ url_for('round_robin') }}">
+            <div class="button">Round Robin</div>
+        </a>
+    </div>
 
-<footer>
-    &copy; KAUS4R&nbsp; &nbsp;| &nbsp;
-    <a href="https://github.com/kausaraahmed/ScheduLumos" class="socio-link" target="_blank">
-        <img src="{{ url_for('static', filename='images/github.png') }} " width="20px"></a>
-    &nbsp;
-    <a href="https://www.linkedin.com/in/kausaraahmed/" class="socio-link" target="_blank">
-        <img src="{{ url_for('static', filename='images/linkedin.png') }} " width="20px"></a>
-</footer>
+    <footer>
+        &copy; KAUS4R&nbsp; &nbsp;| &nbsp;
+        <a href="https://github.com/kausaraahmed/ScheduLumos" class="socio-link" target="_blank">
+            <img src="{{ url_for('static', filename='images/github.png') }} " width="20px"></a>
+        &nbsp;
+        <a href="https://www.linkedin.com/in/kausaraahmed/" class="socio-link" target="_blank">
+            <img src="{{ url_for('static', filename='images/linkedin.png') }} " width="20px"></a>
+    </footer>
 
 </body>
 
