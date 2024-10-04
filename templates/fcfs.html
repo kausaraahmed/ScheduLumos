@@ -11,43 +11,48 @@
 </head>
 
 <body>
-    <h1>FCFS Algorithm</h1>
+    <div class="main-container">
+        <h1>FCFS Algorithm</h1>
 
-    <div class="input-container">
-        <label for="arrival-time">Arrival Time (space-separated): </label>
-        <input type="text" id="arrival-time" name="arrival-time" placeholder="Enter arrival time">
-        <label for="burst-time">Burst Time (space-separated): </label>
-        <input type="text" id="burst-time" name="burst-time" placeholder="Enter burst time">
-    </div>
+        <div class="input-container">
+            <label for="arrival-time">Arrival Time (space-separated): </label>
+            <input type="text" id="arrival-time" name="arrival-time" placeholder="Enter arrival time">
+            <label for="burst-time">Burst Time (space-separated): </label>
+            <input type="text" id="burst-time" name="burst-time" placeholder="Enter burst time">
+        </div>
 
-    <button id="run-algo">Run Algorithm</button>
+        <button id="run-algo">Run Algorithm</button>
 
-    <div id="result-container" style="position: relative">
-        <a id="download-link" href="#" style="display: none; position: absolute; top: 10px; right: 10px;">
-            <img src="{{ url_for('static', filename='images/file.png') }}" alt="Download Result"
-                style="width: 30px; height: 30px; cursor: pointer;">
+        <div id="result-container">
+
+            <a id="download-link" href="#" style="display: none; position: absolute; top: 10px; right: 10px;">
+                <img src="{{ url_for('static', filename='images/file.png') }}" alt="Download Result"
+                    style="width: 30px; height: 30px; cursor: pointer;">
+            </a>
+
+            <div id="result"></div>
+
+            <a href="{{ url_for('compare') }}" class="send-compare" id="send_compare"
+                style="display: none;  position: absolute; bottom: 0; right: 0;">
+                <button>Compare Results</button>
+            </a>
+        </div>
+
+        <a href="{{ url_for('index') }}" class="back_to_main">
+            <button>Main Menu</button>
         </a>
-        <div id="result"></div>
-        <a href="{{ url_for('compare') }}" class="send-compare" id="send_compare" style="display: none;">
-            Compare Results</a>
+
+        <footer>
+            &copy; KAUS4R&nbsp; &nbsp;| &nbsp;
+            <a href="https://github.com/kausaraahmed/ScheduLumos" class="socio-link" target="_blank">
+                <img src="{{ url_for('static', filename='images/github.png') }} " width="17px" alt="GitHub"></a>
+            &nbsp;
+            <a href="https://www.linkedin.com/in/kausaraahmed/" class="socio-link" target="_blank">
+                <img src="{{ url_for('static', filename='images/linkedin.png') }} " width="17px" alt="LinkedIn"></a>
+        </footer>
     </div>
-
-    <br>
-
-    <a href="{{ url_for('index') }}" class="back_to_main">
-        <button>Main Menu</button>
-    </a>
 
     <script src="{{ url_for('static', filename='js/fcfs.js') }}"></script>
-
-    <footer>
-        &copy; KAUS4R&nbsp; &nbsp;| &nbsp;
-        <a href="https://github.com/kausaraahmed/ScheduLumos" class="socio-link" target="_blank">
-            <img src="{{ url_for('static', filename='images/github.png') }} " width="17px" alt="GitHub"></a>
-        &nbsp;
-        <a href="https://www.linkedin.com/in/kausaraahmed/" class="socio-link" target="_blank">
-            <img src="{{ url_for('static', filename='images/linkedin.png') }} " width="17px" alt="LinkedIn"></a>
-    </footer>
 
 </body>
 
