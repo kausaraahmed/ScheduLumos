@@ -106,3 +106,100 @@ footer {
 .socio-link:hover {
     scale: 1.1;
 }
+
+@media screen and (max-width: 767px) {
+    body {
+        background-size: auto;
+        height: auto;
+        background-color: #ED7847;
+        overflow: visible;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    h1 {
+        font-size: 10vw;
+        margin-bottom: 10%;
+        font-weight: bold;
+    }
+
+    .input-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 4vw;
+    }
+
+    #arrival-time {
+        margin-bottom: 5vw;
+    }
+
+    input[type="text"] {
+        padding: 2vw;
+        margin: 1.5vw;
+        border: 2px solid #2d2d2d;
+    }
+
+    button {
+        padding: 2vw 5vw;
+        margin-bottom: 3vw;
+    }
+
+    #result-container {
+        width: fit-content;
+        min-width: 80%;
+        overflow: hidden;
+        border: 1.5px solid #101010;
+        border-radius: 5px;
+        background-color: transparent;
+    }
+
+    #result {
+        overflow: scroll;
+    }
+
+    #send-compare {
+        position: absolute;
+        bottom: 0;
+        right: 2vw;
+    }
+
+    .download-btn {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+    }
+
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 80%;
+        text-align: center;
+        padding: 10px;
+        margin: 0 auto;
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .socio-link {
+        margin: 0 5px;
+        right: 0;
+        bottom: 2px;
+        transition: all 0.1s ease-in-out;
+    }
+
+    .socio-link a {
+        margin-left: 5px;
+    }
+
+    .socio-link:hover {
+        scale: 1.1;
+    }
+}
