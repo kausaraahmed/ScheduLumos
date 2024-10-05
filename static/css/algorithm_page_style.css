@@ -8,7 +8,6 @@ body {
 
 .main-container {
     display: flex;
-    /* min-height: 90vh; */
     height: 100vh;
     width: 80vw;
     flex-direction: column;
@@ -48,7 +47,7 @@ input[type="text"] {
 button {
     padding: 0.6vw 1.5vw;
     font-family: 'Ubuntu', sans-serif;
-    font-size: 1.3vw;
+    font-size: 1.1vw;
     border-radius: 5px;
     background-color: #141619;
     color: whitesmoke;
@@ -60,6 +59,11 @@ button {
 
 button:hover {
     border-color: rebeccapurple;
+}
+
+.send-compare button {
+    font-size: 0.9vw;
+    padding: 0.5vw 1.2vw;
 }
 
 #result-container {
@@ -78,10 +82,10 @@ button:hover {
 }
 
 #result {
-    width: 100%;
+    width: 90%;
     height: fit-content;
-    overflow: auto;
     font-size: 1vw;
+    overflow: auto;
     background-color: transparent;
 }
 
@@ -145,7 +149,7 @@ footer {
     }
 
     button {
-        padding: 1vw 3.5vw;
+        padding: 2vw 4vw;
         font-size: 4vw;
         margin: 0;
     }
@@ -153,9 +157,16 @@ footer {
     #result-container {
         width: 100%;
         border: 2px solid #2d2d2d;
+        min-height: 30vh;
         border-radius: 5px;
         background-color: transparent;
-        min-height: 30vh;
+    }
+
+    #result {
+        padding: 3vw;
+        text-align: left;
+        word-wrap: break-word;
+        font-size: 3vw;
     }
 
     #send_compare {

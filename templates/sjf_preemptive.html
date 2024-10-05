@@ -25,7 +25,7 @@
 
         <div id="result-container">
 
-            <a id="download-link" href="#" style="display: none; position: absolute; bottom: 0; right: 0;">
+            <a id="download-link" href="#" style="display: none; position: absolute; top: 10px; right: 10px;">
                 <img src="{{ url_for('static', filename='images/file.png') }}" alt="Download Result"
                     style="width: 30px; height: 30px; cursor: pointer;">
             </a>
@@ -33,7 +33,7 @@
             <div id="result"></div>
 
             <a href="{{ url_for('compare') }}" class="send-compare" id="send_compare"
-                style="display: flex; position: absolute; bottom: 0; right: 0;">
+                style="display: none; position: absolute; bottom: 0; right: 0;">
                 <button>Compare Results</button>
             </a>
         </div>

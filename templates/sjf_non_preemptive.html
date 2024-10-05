@@ -15,17 +15,17 @@
         <h1>SJF - Non Preemptive Algorithm</h1>
 
         <div class="input-container">
-            <label for="arrival-time">Arrival Times (space-separated):</label>
+            <label for="arrival-time">Arrival Times (space-separated): &nbsp;</label>
             <input type="text" id="arrival-time" name="arrival-time" placeholder="Enter arrival times">
-            <label for="burst-time">Burst Times (space-separated):</label>
+            <label for="burst-time">Burst Times (space-separated): &nbsp;</label>
             <input type="text" id="burst-time" name="burst-time" placeholder="Enter burst times">
         </div>
 
         <button id="run-algo">Run Algorithm</button>
 
-        <div id="result-container" style="position: relative">
+        <div id="result-container">
 
-            <a id="download-link" href="#" style="display: none; position: absolute; top: 0; right: 0;">
+            <a id="download-link" href="#" style="display: none;  position: absolute; top: 10px; right: 10px;">
                 <img src="{{ url_for('static', filename='images/file.png') }}" alt="Download Result"
                     style="width: 30px; height: 30px; cursor: pointer;">
             </a>
